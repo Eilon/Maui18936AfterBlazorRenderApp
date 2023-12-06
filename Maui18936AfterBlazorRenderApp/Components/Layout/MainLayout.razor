@@ -1,4 +1,5 @@
 ﻿@inherits LayoutComponentBase
+@inject FirstRazorLayoutRenderedService FirstRazorLayoutRenderedService
 
 <div class="page">
     <div class="sidebar">
@@ -15,3 +16,13 @@
         </article>
     </main>
 </div>
+
+@code
+{
+    protected override void OnAfterRender(bool firstRender)
+    {
+        base.OnAfterRender(firstRender);
+
+        FirstRazorLayoutRenderedService.OnFirstRazorLayoutRendered();
+    }
+}

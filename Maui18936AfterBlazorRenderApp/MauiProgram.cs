@@ -21,6 +21,10 @@ namespace Maui18936AfterBlazorRenderApp
     		builder.Logging.AddDebug();
 #endif
 
+            // Register pages and services in the DI container
+            builder.Services.AddTransient<MainPage>();
+            builder.Services.AddSingleton<FirstRazorLayoutRenderedService>();
+
             return builder.Build();
         }
     }
